@@ -15,7 +15,7 @@ namespace ForWorkProject.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
+
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
@@ -101,7 +101,6 @@ namespace ForWorkProject.Migrations
                 {
                     b.Navigation("ReplyMessages");
                 });
-#pragma warning restore 612, 618
         }
     }
 }

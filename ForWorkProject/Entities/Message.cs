@@ -9,6 +9,7 @@ public class Message: MainEntity
     public Guid? ParentMessageId { get; set; }
     public List<Message>? ReplyMessages { get; set; }
     public Guid ChatId { get; set; }
+
     [JsonIgnore]
     public virtual Chat? Chat { get; set; }
 

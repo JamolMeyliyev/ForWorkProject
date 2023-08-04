@@ -3,7 +3,7 @@
 namespace ForWorkProject.Managers;
 public interface IChatManager
 {
-    ValueTask<List<ChatModel>> GetChats();
+    ValueTask<IEnumerable<ChatModel>> GetChats(ChatFilter filter);
     ValueTask<ChatModel> GetByChatId(Guid chatId);
     ValueTask<ChatModel> CreateChat(CreateChatModel model);
     ValueTask<ChatModel> UpdateChat(Guid chatId,UpdateChatModel model);
