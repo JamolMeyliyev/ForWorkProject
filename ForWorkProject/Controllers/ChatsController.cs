@@ -16,11 +16,11 @@ public class ChatsController : ControllerBase
         _chatManager = chatManager;
     }
     [HttpGet]
-    public async Task<IActionResult> GetChats()
+    public async Task<IActionResult> GetChats([FromQuery] ChatFilter filter)
     {
         try
         {
-           return Ok( await _chatManager.GetChats());
+           return Ok( await _chatManager.GetChats(filter));
         }
         catch(NotFoundException ex)
         {

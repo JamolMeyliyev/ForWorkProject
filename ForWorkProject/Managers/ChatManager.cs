@@ -57,9 +57,9 @@ public class ChatManager : IChatManager
         return chat.ToModel();
     }
 
-    public async ValueTask<List<ChatModel>> GetChats()
+    public async ValueTask<IEnumerable<ChatModel>> GetChats(ChatFilter filter)
     {
-        var chats =  await _repos.GetChatsAsync();
+        var chats =  await _repos.GetChatsAsync(filter);
 
         if(chats is null)
         {

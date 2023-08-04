@@ -22,6 +22,7 @@ builder.Services.AddScoped<IChatRepository,ChatRepository>();
 builder.Services.AddScoped<IMessageRepository,MessageRepository>();
 builder.Services.AddScoped<IChatManager, ChatManager>();
 builder.Services.AddScoped<IMessageManager, MessageManager>();
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
