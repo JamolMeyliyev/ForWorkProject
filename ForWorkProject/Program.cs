@@ -1,11 +1,17 @@
 using ForWorkProject.Context;
+using ForWorkProject.Loggers;
 using ForWorkProject.Managers;
+using ForWorkProject.Middleware;
 using ForWorkProject.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var logger = CustomLogger
+    .WriteLogToFile(builder.Configuration, $"Loggers/{DateTime.Now.ToString("dd/MM/yyyy")}.txt");
+
+builder.Logging.AddSerilog(logger);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -31,7 +37,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseErrorHandlerMiddleware();
 
+app.MapControllers();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

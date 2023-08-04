@@ -97,3 +97,4 @@ public class ChatManager : IChatManager
         return chat.ToModel();
     }
 }
+
